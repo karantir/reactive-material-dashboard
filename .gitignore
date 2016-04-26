@@ -1,0 +1,11 @@
+node_modules
+src/bower_components
+.DS_STORE
+.node_history
+*.log
+*~
+*.tar.gz
+*.box
+*.sublime-*
+.vagrant*
+Vagrantfile

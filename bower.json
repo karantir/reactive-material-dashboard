@@ -1,0 +1,16 @@
+{
+    "name": "vegetarium",
+    "dependencies": {
+        "jquery": "latest",
+        "requirejs": "latest",
+        "requirejs-text": "latest",
+        "require-css": "latest",
+        "moment": "latest",
+        "lodash": "latest",
+        "ractive": "latest",
+        "ractive-transitions-fade": "latest",
+        "daemonite-material": "latest",
+        "paths-js": "latest",
+        "velocity": "latest"
+    }
+}
