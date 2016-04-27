@@ -9,7 +9,6 @@ require([
 
 function($, Ractive, Board, data, template) {
 
-
     new Ractive({
         el: 'body',
         template: template,

@@ -22,9 +22,9 @@ function($, Ractive, module, outerTemplate) {
                 'text!' + path + '.html',
                 'css!'  + path + '.css'
             ], function(innerWidget, innerTemplate) {
-                new innerWidget(self);
                 self.partials.innerTemplate = innerTemplate;
-                self.set('innerWidget', true);
+                self.set(innerWidget.apply(self));
+                self.set('isInnerWidgetLoaded', true);
             });
         }
     });

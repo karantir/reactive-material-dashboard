@@ -1,1 +1,18 @@
-<i>{{ title }}</i>
+<h2>{{ title }}</h2>
+<svg width={{ width }} height={{ height }}>
+<g>
+  {{# Chart({ data: data,
+              xaccessor: xaccessor,
+              yaccessor: yaccessor,
+              width: width,
+              height: height,
+              min: min,
+              max: max }) }}
+
+    {{# curves }}
+        <path d="{{ line.path.print() }}" stroke="orange" fill="none" />
+        <path d="{{ area.path.print() }}" stroke="none" fill="blue" />
+    {{/}}
+  {{/}}
+</g>
+</svg>
