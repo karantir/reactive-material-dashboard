@@ -16,7 +16,6 @@ function($, moment) {
                 value + (Math.random() * (ops.valueMax-ops.valueMin)) + ops.valueMin
             ).toFixed(2))
         }
-        console.log(data)
         return data;
     }
 
@@ -30,7 +29,7 @@ function($, moment) {
             {
                 type: 'chart',
                 title: 'Temperature chart',
-                min: 10,
+                min: 0,
                 max: 50,
                 data: [
                     getChartData({
@@ -39,13 +38,13 @@ function($, moment) {
                         valueStart: 19.3,
                         valueMin: -1.5,
                         valueMax: 2,
-                        count: 60
+                        count: 30
                     })
                 ]
             },
             {
                 type: 'chart',
-                title: 'Humiduty chart',
+                title: 'Water expense',
                 min: 0,
                 max: 100,
                 data: [
@@ -54,8 +53,8 @@ function($, moment) {
                         timeStep: 15,
                         valueStart: 90,
                         valueMin: -3,
-                        valueMax: 1.1,
-                        count: 60
+                        valueMax: 0,
+                        count: 30
                     })
                 ]
             }

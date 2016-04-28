@@ -1,18 +1,32 @@
 <h2>{{ title }}</h2>
-<svg width={{ width }} height={{ height }}>
-<g>
-  {{# Chart({ data: data,
-              xaccessor: xaccessor,
-              yaccessor: yaccessor,
-              width: width,
-              height: height,
-              min: min,
-              max: max }) }}
+<svg width={{ width }} height={{ height }} class="chart">
+    <defs>
+        <filter id="bar-shadow" x="-2" y="-2" width="200" height="200">
+            <feOffset       result="offOut"    in="SourceAlpha" dx="1" dy="0" />
+            <feColorMatrix  result="matrixOut" in="offOut" type="matrix" values="0 0 0 0  0
+                                                                                 0 0 0 0  0 
+                                                                                 0 0 0 0  0 
+                                                                                 0 0 0 .5 0"/>
+            <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="1" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+        </filter>
+    </defs>
+    <g>
+        {{# Bar({ data: data,
+                accessor: yaccessor,
+                width: width,
+                height: height,
+                min: min,
+                max: max,
+                compute: compute }) }}
 
-    {{# curves }}
-        <path d="{{ line.path.print() }}" stroke="orange" fill="none" />
-        <path d="{{ area.path.print() }}" stroke="none" fill="blue" />
-    {{/}}
-  {{/}}
-</g>
+            {{# curves }}
+                <linearGradient id="{{ grad_id }}" x1="0" x2="0" y1="100%" y2="0">
+                    <stop offset="0%" stop-color="hsl(120, 100%, 47%)"/>
+                    <stop offset="100%" stop-color="hsl({{ hue }}, 100%, 47%)"/>
+                </linearGradient>
+                <path d="{{ line.path.print() }}" fill="url(#{{ grad_id }})" filter="url(#bar-shadow)" />
+            {{/}}
+        {{/}}
+    </g>
 </svg>
